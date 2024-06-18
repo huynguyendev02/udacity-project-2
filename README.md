@@ -1,51 +1,66 @@
 # Overview
 
-<TODO: complete this with an overview of your project>
+This project is a machine learning application developed in Python, utilizing the Flask framework to serve predictions on housing prices. The project is set up with Azure Pipelines for Continuous Integration and Continuous Deployment (CI/CD), enabling automated testing and deployment to Azure App Service. 
+
+Overall, this project demonstrates a practical implementation of a machine learning application with a focus on automation, containerization, and cloud deployment, showcasing modern development practices and tools.
 
 ## Project Plan
-<TODO: Project Plan
 
-* A link to a Trello board for the project
-* A link to a spreadsheet that includes the original and final project plan>
+* Trello Board: https://trello.com/b/OIEa9Lh5
+* Project spreadsheet plan: https://docs.google.com/spreadsheets/d/1raPIFUOdxzkNwKN_qn7mmcsJT_YxvS1h/edit?usp=sharing&ouid=101751319652859333614&rtpof=true&sd=true
 
 ## Instructions
+CI Architecture (Azure Cloud Shell):
+![alt text](CIAzureShell.png)
+Architecture:
+![alt text](image.png)
 
-<TODO:  
-* Architectural Diagram (Shows how key parts of the system work)>
-
-<TODO:  Instructions for running the Python project.  How could a user with no context run this project without asking you for any help.  Include screenshots with explicit steps to create that work. Be sure to at least include the following screenshots:
-
-* Project running on Azure App Service
-
-* Project cloned into Azure Cloud Shell
-
-* Passing tests that are displayed after running the `make all` command from the `Makefile`
-
-* Output of a test run
-
-* Successful deploy of the project in Azure Pipelines.  [Note the official documentation should be referred to and double checked as you setup CI/CD](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops).
-
-* Running Azure App Service from Azure Pipelines automatic deployment
-
-* Successful prediction from deployed flask app in Azure Cloud Shell.  [Use this file as a template for the deployed prediction](https://github.com/udacity/nd082-Azure-Cloud-DevOps-Starter-Code/blob/master/C2-AgileDevelopmentwithAzure/project/starter_files/flask-sklearn/make_predict_azure_app.sh).
-The output should look similar to this:
-
+How to run locally:
+* Install all dependencies
 ```bash
-udacity@Azure:~$ ./make_predict_azure_app.sh
-Port: 443
-{"prediction":[20.35373177134412]}
+make install
+```
+* Test lint
+```bash
+make lint
+```
+* Unit test
+```bash
+make test
+```
+* Run the application
+```bash
+flask –app app.py run
 ```
 
-* Output of streamed log files from deployed application
+* Project running on Azure App Service
+![alt text](image-2.png)
+* Project cloned into Azure Cloud Shell
+![alt text](CloneGit.png)
+* Passing tests that are displayed after running the `make all` command from the `Makefile`
+![alt text](PassTest.png)
+* Output of a test run of locust
+![alt text](image-3.png)
+* Successful deploy of the project in Azure Pipelines.  [Note the official documentation should be referred to and double checked as you setup CI/CD](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops).
+![alt text](image-6.png)
+![alt text](image-5.png)
+* Running Azure App Service from Azure Pipelines automatic deployment
+![alt text](image-7.png)
+![alt text](image-8.png)
+* Successful prediction from deployed flask app.
+![alt text](image-9.png)
 
+* Output of streamed log files from deployed application
+![alt text](LogAppService.png)
+![alt text](image-1.png)
 > 
 
 ## Enhancements
 
-<TODO: A short description of how to improve the project in the future>
+Future enhancements for this project could include integrating more advanced machine learning models to improve prediction accuracy and implementing a user-friendly web interface for easier interaction with the prediction system. More complex CI/CD to handle more cases.
 
 ## Demo 
 
-<TODO: Add link Screencast on YouTube>
+Youtube: https://www.youtube.com/watch?v=81x6ncKNFyc
 
 
