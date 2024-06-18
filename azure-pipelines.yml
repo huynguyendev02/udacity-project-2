@@ -30,20 +30,34 @@ stages:
         python3.9 -m pip install setup
         python3.9 -m pip install -r requirements.txt
       workingDirectory: $(projectRoot)
-      displayName: 'myStep 1'
+      displayName: 'Update Python packages and install requirements'
 
     - script: |
         export PATH=$HOME/.local/bin:$PATH
         make install
       workingDirectory: $(projectRoot)
-      displayName: 'myStep 2'
+      displayName: 'Makefile install'
 
     - script: |
         export PATH=$HOME/.local/bin:$PATH
         make install
         make lint
       workingDirectory: $(projectRoot)
-      displayName:  'myStep 3 - Run lint tests'
+      displayName:  'Run lint tests'
+    - task: ArchiveFiles@2
+      inputs:
+        rootFolderOrFile: '$(projectRoot)' 
+        includeRootFolder: false 
+        archiveType: 'zip' 
+        archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' 
+        replaceExistingArchive: true 
+      displayName: 'Archive files'
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' 
+        ArtifactName: 'drop'
+        publishLocation: 'Container' 
+      displayName: 'Publish Artifact: drop'
 - stage: Deploy
   displayName: Deploy to Azure App Service
   jobs:
