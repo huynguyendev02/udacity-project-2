@@ -48,10 +48,15 @@ stages:
   jobs:
   - job: BuildJob
     pool: myAgentPool
-    steps:    
-    - script: |
-        chmod +x commands.sh
-        ./commands.sh
-      displayName: 'Deploy Web App'
+    steps:
+    - task: AzureCLI@2
+      inputs:
+        azureSubscription: $(AZURESERVICECONNECTIONID)
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          chmod +x ./commands.sh
+          ./commands.sh
+      displayName: 'Execute commands.sh Script'
 
    
