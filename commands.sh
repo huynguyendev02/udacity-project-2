@@ -1,2 +1,2 @@
 echo  $WEBAPPNAME
-az webapp up --name $WEBAPPNAME --resource-group $RESOURCEGROUP --sku B1 --logs --runtime "PYTHON:3.9"
+az webapp up --name $WEBAPPNAME --resource-group $RESOURCEGROUP --sku B1 --logs --runtime "PYTHON:3.7" --location southeastasia
