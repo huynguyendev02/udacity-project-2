@@ -43,7 +43,7 @@ stages:
         make lint
       workingDirectory: $(projectRoot)
       displayName:  'myStep 3 - Run lint tests'
-- stage: Deploy to Azure App Service
+- stage: Deploy
   displayName: Deploy to Azure App Service
   jobs:
   - job: BuildJob
