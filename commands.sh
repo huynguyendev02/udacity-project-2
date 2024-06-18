@@ -1,0 +1,1 @@
+az webapp up --name $webAppName --resource-group $azureServiceConnectionId --sku B1 --logs --runtime "PYTHON:3.9"

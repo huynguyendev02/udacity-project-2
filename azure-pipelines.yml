@@ -43,16 +43,15 @@ stages:
         make lint
       workingDirectory: $(projectRoot)
       displayName:  'myStep 3 - Run lint tests'
+- stage: Deploy to Azure App Service
+  displayName: Deploy to Azure App Service
+  jobs:
+  - job: BuildJob
+    pool: myAgentPool
+    steps:    
+    - script: |
+        chmod +x commands.sh
+        ./commands.sh
+      displayName: 'Deploy Web App'
 
-    - task: ArchiveFiles@2
-      displayName: 'myStep 4 - Archive files'
-      inputs:
-        rootFolderOrFile: '$(projectRoot)'
-        includeRootFolder: false
-        archiveType: zip
-        archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-        replaceExistingArchive: true
-
-    - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-      displayName: 'myStep 5 - Upload package'
-      artifact: drop
+   
