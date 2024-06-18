@@ -6,10 +6,10 @@ pool: myAgentPool
 
 variables:
   # TODO: Replace the service connection name as used in the DevOps project settings
-  azureServiceConnectionId: 'svc-connection'
+  AZURESERVICECONNECTIONID: 'svc-connection'
   
   # TODO: Specify the value of the existing Web App name
-  webAppName: 'udacity-project-2-pythonflask'
+  WEBAPPNAME: 'udacity-project-2-pythonflask'
 
   # Environment name
   environmentName: 'flask-ml-service'
